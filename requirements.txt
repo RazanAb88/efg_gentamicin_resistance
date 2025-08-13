@@ -1,0 +1,7 @@
+Bio (from Biopython) – for handling protein structures and sequences
+
+IPython – for interactive Python tools
+
+ipywidgets – for interactive UI elements in notebooks
+
+nglview – for 3D molecular visualization
