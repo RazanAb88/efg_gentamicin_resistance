@@ -46,7 +46,7 @@ efg_gentamicin_resistance/
 ## Tools and Resources
 
 - **Python** for protein extraction, superimposition, and RMSD calculation
-- **AlphaFold 3** for protein structure prediction
+- **AlphaFold 3** for protein structure prediction ([AlphaFold server link](https://alphafoldserver.com/))  
 - **NGL Viewer** for 3D visualization of protein structures
 - **PDB Database** for reference crystal structures
 
