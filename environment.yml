@@ -1,0 +1,17 @@
+name: ef-g-resistance
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.10
+  - biopython=1.81
+  - numpy=1.24
+  - pandas=2.0
+  - matplotlib=3.7
+  - seaborn=0.12
+  - ipywidgets=8.1
+  - nglview=3.0
+  - pip:
+      - gemmi
+      - biotite
