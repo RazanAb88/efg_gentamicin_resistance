@@ -1,3 +1,10 @@
+<p align="center">
+  <img src="figures/F683L E. coli 10xmic.png" alt="Structural overlay of mutated E. coli EF-G Phe683Leu mutant" width="600"/>
+</p>
+
+<p align="center"><em>Structural overlay highlighting the Phe683Leu mutation in EF-G — visualising potential structural proximity to gentamicin binding site potentially linked to gentamicin resistance.</em></p>
+
+
 # EF-G Mutations and Gentamicin Resistance in E. coli
 *A reproducible Python workflow for structural analysis and mutation visualisation*
 
