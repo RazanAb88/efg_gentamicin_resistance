@@ -72,16 +72,19 @@ These minor structural shifts were localised to domains II and IV, and visualize
 
 ## Repository Structure
 
+```text
 efg_gentamicin_resistance/
-├── data/                        # PDB files, sequencing data, and other raw inputs
-├── models/                      # Superimposed and AlphaFold-generated structures
-├── notebooks/                   # Jupyter Notebooks for analysis
-├── scripts/                     # Python scripts for structural extraction and modelling
-├── figures/                     # Plots and rendered structural images
-├── efg_gentamicin_report.ipynb  # Summary notebook
-├── environment.yml              # Conda environment for reproducibility
-├── LICENSE                      # MIT License
-└── README.md                    # Project overview
+├── data/                      # PDB files, sequencing data, and other raw inputs
+├── models/                    # Superimposed and AlphaFold-generated structures
+├── notebooks/                 # Jupyter Notebooks for exploratory and final analysis
+├── scripts/                   # Python scripts for structural extraction and modelling
+├── figures/                   # Plots and rendered structural images
+├── efg_gentamicin_report.ipynb  # Main summary notebook
+├── environment.yml            # Conda environment specification for reproducibility
+├── LICENSE                    # MIT License
+└── README.md                  # Project overview and instructions
+```
+
 
 ## Tools and Resources
 
