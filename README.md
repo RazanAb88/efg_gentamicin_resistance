@@ -32,6 +32,9 @@ This project showcases a Python-based workflow for protein structure visualizati
 - Documenting the workflow with markdown-based scientific reporting, combining code summaries, visual outputs, and interpretation  scaffolding in the domain IV of EF-G.
 
 
+🔬 Machine Learning Component
+This workflow uses AlphaFold 3, a state-of-the-art deep learning model, as the machine learning component for structural prediction. EF-G FASTA sequences derived from WGS data were submitted to the AlphaFold server, and predicted models were used for structural comparison, confidence assessment, and mutation impact analysis within ribosomal complexes.
+
 
 🧾 Disclaimer
 This repository was created independently by Razan to demonstrate technical expertise in computational biology, Python-based structural analysis, and reproducible workflow design. While the underlying biological study originates from her PhD research, the coding workflow, visualisation pipeline, and documentation presented here were developed separately for portfolio and educational purposes. Scientific questions and interpretations were guided by the original supervisory team.
@@ -133,4 +136,14 @@ jupyter notebook
 3. View results
    Structural overlays are saved in the models/ folder.
    Plots and rendered images are stored in figures/.
+
+
+🧠 Skills Demonstrated
+- Applied machine learning through AlphaFold 3 for protein structure prediction  
+- Protein sequence parsing and extraction (BioPython)  
+- Structural alignment and RMSD calculation (MDAnalysis, NumPy)  
+- Mutation visualisation and structural annotation (NGL Viewer)  
+- Comparative analysis of wild-type and mutant models  
+- Jupyter Notebook–based scientific reporting using matplotlib  
+- Reproducible workflow design with Conda and modular scripts
 

@@ -276,7 +276,7 @@ display(view)
 # Load CIF file from AlphaFold 3 server
 view = nv.show_file("e.coli3609910xmicef-g.cif")
 view.clear_representations()
-view.add_representation('cartoon', color='siver')
+view.add_representation('cartoon', color='silver')
 selection_string = "659:A.CA"
 view.add_representation('ball+stick', selection=selection_string, color='red')
 view.add_representation('label', sele=selection_string, labelType='format', labelFormat='%(resname)s%(resno)s', color='red', xOffset=1, fixedSize=True)
@@ -395,7 +395,7 @@ display(view)
 # Load CIF file from AlphaFold 3 server
 view = nv.show_file("ef-ge.colimg165510xmic.cif")
 view.clear_representations()
-view.add_representation('cartoon', color='siver')
+view.add_representation('cartoon', color='silver')
 selection_string = "593:A.CA"
 view.add_representation('ball+stick', selection=selection_string, color='red')
 view.add_representation('label', sele=selection_string, labelType='format', labelFormat='%(resname)s%(resno)s', color='red', xOffset=1, fixedSize=True)
