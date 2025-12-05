@@ -10,8 +10,10 @@ dependencies:
   - pandas=2.0
   - matplotlib=3.7
   - seaborn=0.12
+  - ipython>=8.0
   - ipywidgets=8.1
   - nglview=3.0
+  - notebook>=6.5
   - pip:
-      - gemmi
-      - biotite
+      - gemmi>=0.6
+      - biotite>=2.1

@@ -1,7 +1,6 @@
-Bio (from Biopython) – for handling protein structures and sequences
-
-IPython – for interactive Python tools
-
-ipywidgets – for interactive UI elements in notebooks
-
-nglview – for 3D molecular visualization
+biopython>=1.80            # For parsing PDB/mmCIF files, manipulating structures
+ipython>=8.0               # For interactive Python notebook tools
+ipywidgets>=8.0            # For interactive UI elements in notebooks
+nglview>=3.0               # For 3D molecular visualization in notebooks
+numpy>=1.24                # Required by Biopython and for RMSD calculations
+matplotlib>=3.7            # If you generate plots or figures

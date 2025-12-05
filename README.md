@@ -1,9 +1,8 @@
-<p align="center">
-  <img src="figures/F683L_Ecoli_10xmic.png" alt="Structural overlay of mutated E. coli EF-G Phe683Leu mutant" width="600"/>
+<p align="center"> 
+  <img src="figures/workflow2_gentamicin_proximity2.png" alt="Structural overlay of mutated E. coli EF-G Phe593Leu mutant" width="600"/>
 </p>
 
 <p align="center"><em>Structural overlay highlighting the Phe683Leu mutation in EF-G — visualising potential structural proximity to gentamicin binding site potentially linked to gentamicin resistance.</em></p>
-
 
 # EF-G Mutations and Gentamicin Resistance in E. coli
 *A reproducible Python workflow for structural analysis and mutation visualisation*
@@ -12,138 +11,131 @@ This repository contains part of my PhD research investigating the structural im
 
 ## Background
 
-A novel in vitro method was used to investigate the development of gentamicin resistance in Escherichia coli, Pseudomonas aeruginosa, and Klebsiella pneumoniae. This approach created a spatial gradient of increasing antibiotic concentrations, allowing bacteria to grow and adapt across zones of different drug exposure. As resistant subpopulations emerged, they could be isolated for further analysis.
+A novel in vitro method was used to investigate the development of gentamicin resistance in Escherichia coli, Pseudomonas aeruginosa, and Klebsiella pneumoniae. DNA from resistant colonies was sequenced, and fusA gene variants (encoding EF-G) were identified. 
 
-DNA from gentamicin‑resistant colonies was sequenced, and the resulting data were aligned and annotated to detect genetic variants. Many resistant mutants carried substitutions in the fusA gene, which encodes elongation factor G (EF‑G) — a ribosomal GTPase essential for protein synthesis and a known target in antibiotic resistance studies.
+## Objectives
 
-🧪 Objectives
-This project showcases a Python-based workflow for protein structure visualization and mutation analysis, developed to explore structural variations in EF-G and their potential relevance to antibiotic resistance. The emphasis is on:
+This project showcases a Python-based workflow for protein structure visualization and mutation analysis:
 
-- Generating EF-G variant structures using AlphaFold 3 via the AlphaFold server ([AlphaFold server link](https://alphafoldserver.com/)), based on curated FASTA sequences.
+- Generating EF-G variant structures using **AlphaFold 3**  
+- Highlighting specific amino acid substitutions in predicted models  
+- Superimposing EF-G variants onto the 70S ribosome with gentamicin  
+- Visualising wild-type and mutant structures using **Biopython** and **NGL Viewer**  
+- Structuring the codebase for modularity and reproducibility  
 
-- Highlighting specific amino acid substitutions within the predicted models to assess their spatial positioning and potential structural implications
+## Scientific Workflows
 
-- Superimposing EF-G variants onto the 70S ribosome complexed with gentamicin to explore mutation proximity and generate functional hypotheses.
+### Workflow 1: AlphaFold EF-G Modeling & Comparison
 
-- Visualising and comparing wild-type and mutant structures using Biopython and NGL Viewer, with annotated mutation sites.
+- EF-G amino acid sequences were submitted to AlphaFold 3 for structure prediction.  
+- Predicted models had confidence scores >88%, with most residues >90%.  
+- Wild-type and mutant EF-G structures were visualized and superimposed using Biopython and NGL Viewer.  
+- **RMSD between wild-type and mutant structures**:  
+  - 0.52 Å for *E. coli 36099*  
+  - 0.46 Å for *E. coli MG1655*  
 
-- Structuring the codebase for modularity and reproducibility, including Conda environment setup and clear function separation. 
+**Findings:**  
+- **Pro659** is located in EF-G Domain V, potentially influencing ribosomal translocation.  
+- **Phe593Leu** in Domain IV is near the gentamicin binding site, suggesting a role in resistance.
 
-- Documenting the workflow with markdown-based scientific reporting, combining code summaries, visual outputs, and interpretation  scaffolding in the domain IV of EF-G.
+### Workflow 2: EF-G + Ribosome Superimposition
 
-
-🔬 Machine Learning Component
-This workflow uses AlphaFold 3, a state-of-the-art deep learning model, as the machine learning component for structural prediction. EF-G FASTA sequences derived from WGS data were submitted to the AlphaFold server, and predicted models were used for structural comparison, confidence assessment, and mutation impact analysis within ribosomal complexes.
-
-
-🧾 Disclaimer
-This repository was created independently by Razan to demonstrate technical expertise in computational biology, Python-based structural analysis, and reproducible workflow design. While the underlying biological study originates from her PhD research, the coding workflow, visualisation pipeline, and documentation presented here were developed separately for portfolio and educational purposes. Scientific questions and interpretations were guided by the original supervisory team.
-
-
-## Methods
-
-🧬 1. Structural Analysis
-- For EF-G structural context, crystal structures of the Thermus thermophilus 70S ribosome in complex with EF-G were retrieved from the Protein Data Bank:
-
-- Pre-translocational state: `PDB ID: 4WPO`
-- Post-translocational state: `PDB ID: 4V5F`
-
-- EF-G chains were programmatically extracted using Biopython, and structural alignment was performed using MDAnalysis and NumPy to calculate RMSD (33.2 Å), reflecting large-scale conformational shifts during translocation.
-
-- Mutation site Pro659 was highlighted within the aligned models using NGL Viewer, demonstrating its location in a dynamic region of EF-G potentially relevant to ribosomal movement.
-
-- For comparative analysis, EF-G (post-translocational, 4V5F) was superimposed with the ribosome bound to gentamicin (PDB ID: 4V53), yielding an RMSD of 0.0005 Å, confirming structural consistency and enabling proximity-based visualisation of mutation effects.
-
-🧪 2. Protein Modeling
-- EF-G amino acid sequences were extracted from sequencing data and submitted to AlphaFold 3 via the AlphaFold server for structure prediction.
-
-Predicted models showed confidence scores >88%, with most residues scoring >90 except in flexible loop regions.
-
-- Wild-type and mutant EF-G structures were visualized and superimposed using Biopython and NGL Viewer within a Jupyter Notebook environment.
-
-- RMSD between wild-type and mutant structures:
-   0.52 Å for E. coli 36099
-   0.46 Å for E. coli MG1655 
-These minor structural shifts were localised to domains II and IV, and visualized in proximity to gentamicin within the ribosomal complex.
-
-🧠 Findings
-- Pro659 is located in EF-G Domain V, a region involved in ribosomal translocation. Structural alignment of pre- and post-translocational EF-G models revealed domain-level shifts, suggesting that the Pro659Leu substitution may influence conformational dynamics relevant to gentamicin susceptibility.
-
-- Phe593Leu, located in Domain IV of EF-G, was visualised in close proximity to gentamicin within the ribosome-bound complex. Structural comparison between wild-type and mutant models showed a transition in Domain IV, supporting a potential role in resistance. This observation aligns with prior literature (Quiroga et al., 2018) identifying Phe593Leu as a resistance-associated mutation.
-
-- The workflow provides a reproducible framework for visualising mutation positions, comparing structural variants, and generating hypothesis-driven insights into antimicrobial resistance mechanisms using Python-based tools.
+- EF-G (post-translocational, 4V5F) was superimposed with the ribosome bound to gentamicin (PDB ID: 4V53).  
+- **RMSD**: 0.7652 Å, confirming structural consistency.  
+- Enables proximity-based visualisation of mutation effects within ribosome complexes.
 
 ## Repository Structure
 
 ```text
 efg_gentamicin_resistance/
-├── data/                      # PDB files, sequencing data, and other raw inputs
+├── data/                      # CIF/PDB files, sequencing data
 ├── models/                    # Superimposed and AlphaFold-generated structures
-├── notebooks/                 # Jupyter Notebooks for exploratory and final analysis
-├── scripts/                   # Python scripts for structural extraction and modelling
-├── figures/                   # Plots and rendered structural images
-├── efg_gentamicin_report.ipynb  # Main summary notebook
-├── environment.yml            # Conda environment specification for reproducibility
+├── notebooks/                 # Workflow notebooks (Workflow 1 & 2)
+├── src/                       # Python scripts (bio_structures, visualise_structures, ribosome_drug_proximity)
+├── figures/                   # Plots and structural images
+├── efg_gentamicin_report.ipynb # Summary notebook
+├── environment.yml            # Conda environment
+├── conda                      # conda file
+├── requirements.txt           # Pip dependencies (optional)
 ├── LICENSE                    # MIT License
-└── README.md                  # Project overview and instructions
-```
-
+└── README.md                  # Project overview
 
 ## Tools and Resources
 
-- **Python** for protein extraction, superimposition, and RMSD calculation
-- **Biopython** for sequence parsing and structure manipulation 
-- **AlphaFold 3** for protein structure prediction ([AlphaFold server link](https://alphafoldserver.com/))  
-- **NGL Viewer** for 3D visualization of protein structures
-- **Jupyter Notebook** for workflow integration and scientific reporting 
-- **PDB Database** for reference crystal structures
+- Python – protein extraction, superimposition, RMSD calculation
+
+- Biopython – sequence parsing & structure manipulation
+
+- AlphaFold 3 – protein structure prediction (AlphaFold server: https://alphafold.ebi.ac.uk/)
+
+- NGL Viewer – 3D protein visualization
+
+- Jupyter Notebook – workflow integration and reporting
+
+- PDB Database – reference crystal structures
 
 ## Environment Setup
 
-To ensure reproducibility, this project uses a Conda environment. You can recreate it using the provided `environment.yml` file:
+Recreate the Conda environment:
 
 ```bash
 conda env create -f environment.yml
 conda activate ef-g-resistance
 ```
-## Installation
+Optional Pip installation:
 
-To get started, clone the repository and install dependencies:
-
-```bash
-git clone https://github.com/RazanAb88/efg_gentamicin_resistance.git
-cd efg_gentamicin_resistance
-conda env create -f environment.yml
-conda activate ef-g-resistance
+```bash 
+pip install -r requirements.txt
 ```
 
 ## How to Run
 
-1. Launch Jupyter Notebook
-```bash
+1- Launch Jupyter Notebook:
+``` bash
 jupyter notebook
 ```
-   Open the notebook from the notebooks/ folder (e.g., finding1_3d_alignment.ipynb).
+2- Open notebooks in notebooks/ folder.
 
-2. Run the analysis
-   Ensure the data/ folder contains the PDB or mmCIF files (4WPO, 4V5F, and AlphaFold models).
-   Execute each cell in order to:
-    -Extract EF-G from ribosome structures
-    -Perform superimposition
-    -Calculate RMSD
-    -Visualise in 3D with NGL Viewer
+3- Ensure data/ contains CIF or PDB files.
 
-3. View results
-   Structural overlays are saved in the models/ folder.
-   Plots and rendered images are stored in figures/.
+4- Execute the cells to:
 
+- Extract EF-G from ribosome structures
 
-🧠 Skills Demonstrated
-- Applied machine learning through AlphaFold 3 for protein structure prediction  
-- Protein sequence parsing and extraction (BioPython)  
-- Structural alignment and RMSD calculation (MDAnalysis, NumPy)  
-- Mutation visualisation and structural annotation (NGL Viewer)  
-- Comparative analysis of wild-type and mutant models  
-- Jupyter Notebook–based scientific reporting using matplotlib  
+- Perform superimposition
+
+- Calculate RMSD
+
+- Visualize in 3D
+
+5- Results:
+
+- Superimposed structures → models/
+
+- Figures & visualizations → figures/
+
+### Skills Demonstrated
+
+- Protein structure prediction with AlphaFold 3
+
+- Structural alignment and RMSD calculation using Biopython
+
+- Mutation visualization with NGL Viewer
+
 - Reproducible workflow design with Conda and modular scripts
+
+- Notebook-based scientific reporting
+
+
+```yaml 
+
+This is fully copy-paste ready into your `README.md`.  
+
+---
+
+If you want, I can also **add badges, environment instructions, and a “quick run example” section** at the top for extra professionalism.  
+
+Do you want me to do that?
+```
+
 
