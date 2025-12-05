@@ -128,15 +128,4 @@ jupyter notebook
 - Notebook-based scientific reporting
 
 
-```yaml 
-
-This is fully copy-paste ready into your `README.md`.  
-
----
-
-If you want, I can also **add badges, environment instructions, and a “quick run example” section** at the top for extra professionalism.  
-
-Do you want me to do that?
-```
-
 
