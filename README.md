@@ -11,7 +11,11 @@ This repository contains part of my PhD research investigating the structural im
 
 ## Background
 
-A novel in vitro method was used to investigate the development of gentamicin resistance in Escherichia coli, Pseudomonas aeruginosa, and Klebsiella pneumoniae. DNA from resistant colonies was sequenced, and fusA gene variants (encoding EF-G) were identified. 
+
+A novel in vitro method was used to investigate the development of gentamicin resistance in Escherichia coli, Pseudomonas aeruginosa, and Klebsiella pneumoniae. This approach created a spatial gradient of increasing antibiotic concentrations, allowing bacteria to grow and adapt across zones of different drug exposure. As resistant subpopulations emerged, they could be isolated for further analysis.
+
+DNA from gentamicin‑resistant colonies was sequenced, and the resulting data were aligned and annotated to detect genetic variants. Many resistant mutants carried substitutions in the fusA gene, which encodes elongation factor G (EF‑G) — a ribosomal GTPase essential for protein synthesis and a known target in antibiotic resistance studies.
+
 
 ## Objectives
 
@@ -22,6 +26,14 @@ This project showcases a Python-based workflow for protein structure visualizati
 - Superimposing EF-G variants onto the 70S ribosome with gentamicin  
 - Visualising wild-type and mutant structures using **Biopython** and **NGL Viewer**  
 - Structuring the codebase for modularity and reproducibility  
+
+
+## Machine Learning Component
+
+This workflow uses AlphaFold 3, a state-of-the-art deep learning model, as the machine learning component for structural prediction. EF-G FASTA sequences derived from WGS data were submitted to the AlphaFold server, and predicted models were used for structural comparison, confidence assessment, and mutation impact analysis within ribosomal complexes. 
+
+## Disclaimer This repository was created independently by Razan to demonstrate technical expertise in computational biology, Python-based structural analysis, and reproducible workflow design. While the underlying biological study originates from her PhD research, the coding workflow, visualisation pipeline, and documentation presented here were developed separately for portfolio and educational purposes. Scientific questions and interpretations were guided by the original supervisory team.
+
 
 ## Scientific Workflows
 
