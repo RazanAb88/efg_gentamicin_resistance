@@ -59,6 +59,7 @@ efg_gentamicin_resistance/
 ├── requirements.txt           # Pip dependencies (optional)
 ├── LICENSE                    # MIT License
 └── README.md                  # Project overview
+```
 
 ## Tools and Resources
 
