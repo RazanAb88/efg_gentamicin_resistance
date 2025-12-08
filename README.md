@@ -76,17 +76,14 @@ AlphaFold 3–predicted EF-G models were analysed using per-residue pLDDT scores
 
 For E. coli 36099:
 
-Mean pLDDT: 91.78
-
-Mutation-site pLDDT: 92.93
-
-Mutation domain: Domain V
+- Mean pLDDT: 91.78
+- Mutation-site pLDDT: 92.93
+- Mutation domain: Domain V
 
 For E. coli MG1655:
 
-Mutation-site pLDDT: 96.22
-
-Mutation domain: Domain IV
+- Mutation-site pLDDT: 96.22
+- Mutation domain: Domain IV
 
 Both mutations occur in regions of high predicted structural confidence, supporting robust localisation within functional EF-G domains. Domain-specific mutation positioning highlights potential strain-dependent structural mechanisms underlying gentamicin resistance.
 
