@@ -30,7 +30,15 @@ This project showcases a Python-based workflow for protein structure visualizati
 
 ## Machine Learning Component
 
-This workflow uses AlphaFold 3, a state-of-the-art deep learning model, as the machine learning component for structural prediction. EF-G FASTA sequences derived from WGS data were submitted to the AlphaFold server, and predicted models were used for structural comparison, confidence assessment, and mutation impact analysis within ribosomal complexes. 
+This project integrates machine learning–based protein structure prediction using AlphaFold 3 to generate high-confidence EF-G models from genomic data. EF-G FASTA sequences derived from whole-genome sequencing were submitted to the AlphaFold server. Predicted structures were used as ML-derived inputs for downstream structural analysis, including:
+
+- Structural superimposition with crystallographic ribosome complexes
+- RMSD quantification
+- Spatial mapping of resistance-associated mutations
+- Confidence (pLDDT)–guided interpretation of flexible regions
+
+AlphaFold predictions consistently showed pLDDT scores >88, with lower confidence restricted to flexible loop regions, supporting reliable domain-level inference.
+ 
 
 ## Disclaimer 
 
@@ -49,14 +57,18 @@ This repository was created independently by Razan to demonstrate technical expe
   - 0.46 Å for *E. coli MG1655*  
 
 **Findings:**  
-- **Pro659** is located in EF-G Domain V, potentially influencing ribosomal translocation.  
-- **Phe593Leu** in Domain IV is near the gentamicin binding site, suggesting a role in resistance.
+- **Pro659** is located in EF-G Domain V, potentially influencing ribosomal translocation, since visualising the structural alignment of pre- and post-translocational EF-G models revealed domain-level shifts, suggesting that the Pro659Leu substitution may influence conformational dynamics relevant to gentamicin susceptibility.
+
+- **Phe593Leu** in Domain IV of  EF-G, and the visualising the structural comparison between wild-type and mutant models showed a transition in Domain IV, supporting a potential role in resistance. 
 
 ### Workflow 2: EF-G + Ribosome Superimposition
 
 - EF-G (post-translocational, 4V5F) was superimposed with the ribosome bound to gentamicin (PDB ID: 4V53).  
 - **RMSD**: 0.7652 Å, confirming structural consistency.  
 - Enables proximity-based visualisation of mutation effects within ribosome complexes.
+
+**Findings:**
+- Phe593Leu was visualised in close proximity to gentamicin within the ribosome-bound complex. This observation aligns with prior literature (Quiroga et al., 2018) identifying Phe593Leu as a resistance-associated mutation.
 
 ## Repository Structure
 
