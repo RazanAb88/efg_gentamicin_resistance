@@ -8,6 +8,8 @@
 *A reproducible Python workflow for structural analysis and mutation visualisation*
 
 This repository contains part of my PhD research investigating the structural impact of mutations in the **elongation factor G (EF-G)** on bacterial susceptibility to gentamicin, using computational protein analysis.
+➡️ Full reproducible structural analysis is available in the notebooks/ directory, including RMSD analysis, PCA-based clustering, and supervised feature interpretation.
+
 
 ## Background
 
@@ -26,6 +28,8 @@ This project showcases a Python-based workflow for protein structure visualizati
 - Superimposing EF-G variants onto the 70S ribosome with gentamicin  
 - Visualising wild-type and mutant structures using **Biopython** and **NGL Viewer**  
 - Structuring the codebase for modularity and reproducibility  
+- Quantifying mutation-specific structural perturbation using backbone and side-chain RMSD  
+- Applying supervised and unsupervised learning to interpret structural variation  
 
 
 ## Machine Learning Component
@@ -97,13 +101,77 @@ Both mutations occur in regions of high predicted structural confidence, support
 **Findings:**
 - Phe593Leu was visualised in close proximity to gentamicin within the ribosome-bound complex. This observation aligns with prior literature (Quiroga et al., 2018) identifying Phe593Leu as a resistance-associated mutation.
 
+### Workflow 3: Local Structural Perturbation Analysis (Backbone + Side-Chain RMSD)
+
+To quantify mutation-specific structural effects, a second notebook computes both 
+**side-chain RMSD** and **local backbone RMSD** at mutated residues following Cα-based superposition of wild-type and mutant EF-G models.
+
+#### Methods
+For each mutation:
+- Wild-type and mutant structures were superimposed using common Cα atoms.
+- Side-chain RMSD was computed for all non-backbone atoms at the mutated residue.
+- Backbone RMSD was computed using N, Cα, and C atoms at the same position.
+- The analysis produces a mutation-level structural signature:
+{ position, domain, strain, n_sc_atoms, sidechain_rmsd, backbone_rmsd }
+
+
+#### Findings
+- **Phe593Leu** shows **large side-chain displacement** (~1.77 Å) and moderate backbone adjustment.
+- **Pro659Leu** shows **moderate side-chain displacement** (~0.74 Å) and moderate backbone shift consistent with loss of Proline rigidity.
+
+These results highlight **distinct local perturbation regimes** between Domain IV and Domain V mutations and provide interpretable descriptors for downstream machine-learning analyses.
+
+  
+### Workflow 4: Supervised Feature-Based Interpretation (A1-Enhanced)
+
+A supervised regression model was used to investigate which mutation-level features contribute to side-chain displacement. The model incorporates:
+
+- Residue position  
+- EF-G domain  
+- Strain background  
+- Side-chain size (n_sc_atoms)  
+- Local backbone displacement (backbone_rmsd)
+
+Side-chain RMSD is used as the target variable because it reflects the mutation’s direct perturbation of the local chemical environment. 
+
+#### Purpose
+Due to the intentionally small dataset (n = 2), the model is used **for interpretation, not prediction**. LOOCV performance is not meaningful but is included to provide a reproducible template that scales as more mutants are added.
+
+#### Key Insight
+The two mutations occupy **distinct local structural regimes**:
+- Phe593Leu → high-perturbation regime  
+- Pro659Leu → moderate-perturbation regime  
+
+Backbone RMSD emerges as an indicator of **local geometric accommodation**, supporting its inclusion as a mechanistic feature.
+
+### Workflow 5: Unsupervised Structural Clustering
+
+An unsupervised analysis was performed to explore whether EF-G mutations can be grouped based on structural descriptors. Principal component analysis (PCA) was applied to:
+
+- Position
+- Domain
+- Strain
+- Global RMSD
+
+
+#### Findings
+Even with a very small dataset, PCA cleanly separates the two mutations into distinct structural clusters, primarily driven by their domains that had the mutations. This workflow establishes a scalable roadmap for incorporating additional mutants as they become available.
+
+
+
 ## Repository Structure
 
 ```text
 efg_gentamicin_resistance/
 ├── data/                      # CIF/PDB files, sequencing data
 ├── models/                    # Superimposed and AlphaFold-generated structures
-├── notebooks/                 # Workflow notebooks (Workflow 1, 2 and alphafold_features )
+├── notebooks/                 # Workflow notebooks                
+│   ├── workflow1_alphafold.ipynb
+│   ├── workflow2_ribosome_superimposition.ipynb
+│   ├── workflow3_local_rmsd.ipynb
+│   ├── unsupervised_structural_clustering.ipynb
+│   ├── supervised_feature_analysis.ipynb
+│   └──superposition on common Cα, matching side-chain atoms.ipynb
 ├── src/                       # Python scripts (bio_structures, visualise_structures, ribosome_drug_proximity & alphafold_features)
 ├── figures/                   # Plots and structural images
 ├── efg_gentamicin_report.ipynb # Summary notebook
