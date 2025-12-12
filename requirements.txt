@@ -1,6 +1,22 @@
-biopython>=1.80            # For parsing PDB/mmCIF files, manipulating structures
-ipython>=8.0               # For interactive Python notebook tools
-ipywidgets>=8.0            # For interactive UI elements in notebooks
-nglview>=3.0               # For 3D molecular visualization in notebooks
-numpy>=1.24                # Required by Biopython and for RMSD calculations
-matplotlib>=3.7            # If you generate plots or figures
+# Core scientific stack
+numpy>=1.24,<1.25
+pandas>=1.5,<2.1
+
+# Structural biology + molecular handling
+biopython>=1.80
+gemmi>=0.6
+biotite>=2.1
+
+# Visualization
+matplotlib>=3.7,<3.8
+seaborn>=0.12
+nglview>=3.0
+
+# Machine learning + statistics
+scikit-learn>=1.2,<1.4
+
+# Jupyter notebook tools
+ipython>=8.0
+ipywidgets>=8.0
+notebook>=6.5
+jupyterlab>=4.0
