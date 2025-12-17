@@ -181,7 +181,7 @@ efg_gentamicin_resistance/
 │   ├── workflow3_local_rmsd.ipynb
 │   ├── unsupervised_structural_clustering.ipynb
 │   ├── supervised_feature_analysis.ipynb
-│   └──superposition on common Cα, matching side-chain atoms.ipynb
+│   └──alphafold_features.ipynb
 │
 ├── src/                       # Python scripts (bio_structures, visualise_structures, ribosome_drug_proximity & alphafold_features)
 ├── figures/                   # Plots and structural images
